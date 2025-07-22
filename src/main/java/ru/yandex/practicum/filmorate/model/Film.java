@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Data
 @Builder
@@ -26,4 +27,8 @@ public class Film {
     @NotNull(message = "Продолжительность фильма не может быть пустой.")
     @Positive(message = "Продолжительность фильма должна быть положительным числом.")
     private int duration;
+
+    private int mpaRatingId;
+    private MpaRating mpa;
+    private Collection<Genre> genres;
 }
