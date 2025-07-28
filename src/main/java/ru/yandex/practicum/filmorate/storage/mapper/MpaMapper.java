@@ -1,0 +1,20 @@
+package ru.yandex.practicum.filmorate.storage.mapper;
+
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
+import ru.yandex.practicum.filmorate.model.MpaRating;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+@Component
+public class MpaMapper implements RowMapper<MpaRating> {
+    @Override
+    public MpaRating mapRow(ResultSet rs, int rowNum) throws SQLException {
+        return MpaRating.builder()
+                .id(rs.getInt("rating_id"))
+                .name(rs.getString("name"))
+                .description(rs.getString("description"))
+                .build();
+    }
+}
